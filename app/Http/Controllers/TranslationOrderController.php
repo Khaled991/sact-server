@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Log;
 
-
 class TranslationOrderController extends Controller
 {
 
@@ -23,8 +22,8 @@ class TranslationOrderController extends Controller
      */
     public function sendConfirmationMailIPaySuccess(Request $request)
     {
-        $translationOrder =
-            TranslationOrder::where('checkout_id', $request->input('id'))->first();
+        $translationOrder = TranslationOrder::where('checkout_id', $request->input('id'))->first();
+        $translationOrder = TranslationOrder::where('checkout_id', $request->input('id'))->first();
         // Log::info($translationOrder->from_language);
         // Log::info($translationOrder->to_language);
         $languagePagePrice = PaymentController::calculateUnitPrice(
@@ -49,7 +48,7 @@ class TranslationOrderController extends Controller
         $code = $response['result']['code'];
         Log::info($response['result']);
 
-        // 'https://test.oppwa.com/v1/checkouts/14ADD46EE83DDFEAC9C42C93A95CC390.uat01-vm-tx03/payment'
+
 
         Log::info($code);
         if (in_array($code, array('000.000.000', '000.100.110')) || str_starts_with($code, '000.400.')) {
@@ -69,7 +68,7 @@ class TranslationOrderController extends Controller
                 view('paymentSuccesCode')
                     ->with([
                         'checkout_id' => $request->input('id'),
-                        "url" => env("SACT_URL"),
+                        "url" => env("APP_URL"),
                     ]),
                 Response::HTTP_OK
             );
