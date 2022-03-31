@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Log;
 
-// github connected
 class TranslationOrderController extends Controller
 {
 
