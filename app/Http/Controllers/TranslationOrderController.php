@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Log;
 
 
-//test
 class TranslationOrderController extends Controller
 {
 
@@ -24,7 +23,8 @@ class TranslationOrderController extends Controller
      */
     public function sendConfirmationMailIPaySuccess(Request $request)
     {
-        $translationOrder = TranslationOrder::where('checkout_id', $request->input('id'))->first();
+        $translationOrder =
+            TranslationOrder::where('checkout_id', $request->input('id'))->first();
         // Log::info($translationOrder->from_language);
         // Log::info($translationOrder->to_language);
         $languagePagePrice = PaymentController::calculateUnitPrice(
