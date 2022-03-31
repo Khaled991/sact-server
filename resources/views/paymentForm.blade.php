@@ -34,8 +34,9 @@
             width: 95vw;
             border-radius: 10px;
             background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-            url("{{$url.'/storage/credit-card-backgrounds/'.rand(1, 25).'.jpeg'}}")
+            url("{{env('APP_URL').'/storage/credit-card-backgrounds/'.rand(1, 25).'.jpeg'}}")
         }
+
 
         div.wpwl-label,
         wpwl-label-brand {
@@ -79,7 +80,7 @@
     <div class="content-container">
         4005550000000001 05/22 cvv2 123 (success)
         <div>
-            <form action="{env('SERVER_PATH')}/send-mail/account-confirmation" class="paymentWidgets" data-brands="VISA MASTER AMEX MADA"></form>
+            <form action="{{env("APP_URL")}}/send-mail/account-confirmation" class="paymentWidgets" data-brands="VISA MASTER AMEX MADA"></form>
         </div>
     </div>
 </body>

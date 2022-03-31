@@ -60,7 +60,7 @@ class PaymentController extends Controller
         return view('paymentForm')->with(
             [
                 'checkout_id' => $checkout_id,
-                "url" => env("APP_URL"),
+                // "url" => env("APP_URL"),
             ]
         );
     }

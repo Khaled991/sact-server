@@ -68,7 +68,7 @@ class TranslationOrderController extends Controller
                 view('paymentSuccesCode')
                     ->with([
                         'checkout_id' => $request->input('id'),
-                        "url" => env("APP_URL"),
+                        "url" => env("SACT_URL"),
                     ]),
                 Response::HTTP_OK
             );
